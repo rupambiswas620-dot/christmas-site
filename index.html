@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Merry Christmas</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(#0b1d26, #12343b);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Pacifico', cursive;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+        z-index: 2;
+    }
+
+    img {
+        width: 220px;
+        margin-top: 20px;
+        border-radius: 20px;
+    }
+
+    /* Snow */
+    .snow {
+        position: fixed;
+        top: -10px;
+        color: white;
+        font-size: 1em;
+        animation: fall linear infinite;
+        z-index: 1;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(110vh);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div>
+    <h1>
+        Merry Christmas🎄<br>
+        Obese Cat👽
+    </h1>
+
+    <!-- Cat Image -->
+    <img src="https://i.imgur.com/6YV1Z5X.png" alt="Obese Cat">
+</div>
+
+<script>
+    function createSnow() {
+        const snow = document.createElement("div");
+        snow.className = "snow";
+        snow.innerHTML = "❄";
+        snow.style.left = Math.random() * window.innerWidth + "px";
+        snow.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        snow.style.opacity = Math.random();
+        snow.style.fontSize = (Math.random() * 10 + 10) + "px";
+
+        document.body.appendChild(snow);
+
+        setTimeout(() => {
+            snow.remove();
+        }, 5000);
+    }
+
+    setInterval(createSnow, 200);
+</script>
+
+</body>
+</html>
